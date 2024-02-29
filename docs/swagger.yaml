@@ -1,0 +1,16 @@
+externalDocs:
+  description: OpenAPI
+  url: https://swagger.io/resources/open-api/
+host: localhost:8080
+info:
+  contact:
+    name: haynafi
+    url: https://github.com/haynafi
+  description: Sample API with Gin, Golang, and Gorm
+  title: CRUD API GIN GOLANG
+  version: "1.0"
+paths: {}
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"
