@@ -9,23 +9,81 @@ const docTemplate = `{
     "info": {
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
+        "termsOfService": "http://swagger.io/terms/",
         "contact": {
-            "name": "haynafi",
-            "url": "https://github.com/haynafi"
+            "name": "saya",
+            "url": "http://github.com/haynafi"
         },
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
-    "paths": {},
-    "securityDefinitions": {
-        "BasicAuth": {
-            "type": "basic"
+    "paths": {
+        "/product/{id}": {
+            "get": {
+                "description": "get product by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Show"
+                ],
+                "summary": "Show an product",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Product ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "post": {
+                "description": "insert product",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Insert"
+                ],
+                "summary": "Insert product",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Nama Produk",
+                        "name": "nama_product",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "deskripsi",
+                        "name": "deskripsi",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/products": {
+            "get": {
+                "description": "get all product",
+                "tags": [
+                    "Get"
+                ],
+                "summary": "Show all product",
+                "responses": {}
+            }
         }
-    },
-    "externalDocs": {
-        "description": "OpenAPI",
-        "url": "https://swagger.io/resources/open-api/"
     }
 }`
 
@@ -33,10 +91,10 @@ const docTemplate = `{
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
 	Host:             "localhost:8080",
-	BasePath:         "",
+	BasePath:         "/api/",
 	Schemes:          []string{},
-	Title:            "CRUD API GIN GOLANG",
-	Description:      "Sample API with Gin, Golang, and Gorm",
+	Title:            "CRUD with Gin Golang",
+	Description:      "wkwkwkwkwk description",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

@@ -1,23 +1,82 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "Sample API with Gin, Golang, and Gorm",
-        "title": "CRUD API GIN GOLANG",
+        "description": "wkwkwkwkwk description",
+        "title": "CRUD with Gin Golang",
+        "termsOfService": "http://swagger.io/terms/",
         "contact": {
-            "name": "haynafi",
-            "url": "https://github.com/haynafi"
+            "name": "saya",
+            "url": "http://github.com/haynafi"
         },
         "version": "1.0"
     },
     "host": "localhost:8080",
-    "paths": {},
-    "securityDefinitions": {
-        "BasicAuth": {
-            "type": "basic"
+    "basePath": "/api/",
+    "paths": {
+        "/product/{id}": {
+            "get": {
+                "description": "get product by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Show"
+                ],
+                "summary": "Show an product",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Product ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            },
+            "post": {
+                "description": "insert product",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Insert"
+                ],
+                "summary": "Insert product",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Nama Produk",
+                        "name": "nama_product",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "deskripsi",
+                        "name": "deskripsi",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/products": {
+            "get": {
+                "description": "get all product",
+                "tags": [
+                    "Get"
+                ],
+                "summary": "Show all product",
+                "responses": {}
+            }
         }
-    },
-    "externalDocs": {
-        "description": "OpenAPI",
-        "url": "https://swagger.io/resources/open-api/"
     }
 }

@@ -11,26 +11,23 @@ import (
 	_ "github.com/haynafi/maybeGO/docs"
 )
 
-// @title           CRUD API GIN GOLANG
+// @title           CRUD with Gin Golang
 // @version         1.0
-// @description     Sample API with Gin, Golang, and Gorm
+// @description     wkwkwkwkwk description
+// @termsOfService  http://swagger.io/terms/
 
-// @contact.name   haynafi
-// @contact.url    https://github.com/haynafi
+// @contact.name   saya
+// @contact.url    http://github.com/haynafi
 
 // @host      localhost:8080
-
-// @securityDefinitions.basic  BasicAuth
-
-// @externalDocs.description  OpenAPI
-// @externalDocs.url          https://swagger.io/resources/open-api/
+// @BasePath  /api/
 
 func main() {
 	r := gin.Default()
 	models.ConnectDatabase()
 
 	//docs with swagger
-	r.GET("/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	r.GET("/api/docs/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	r.GET("/api/products", productcontroller.Index)
 	r.GET("/api/product/:id", productcontroller.Show)

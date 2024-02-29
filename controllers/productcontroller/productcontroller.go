@@ -9,6 +9,11 @@ import (
 	"gorm.io/gorm"
 )
 
+// Index godoc
+// @Summary      Show all product
+// @Description  get all product
+// @Tags         Get
+// @Router       /products [get]
 func Index(c *gin.Context) {
 
 	var product []models.Product
@@ -17,6 +22,14 @@ func Index(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"products": product})
 }
 
+// Show godoc
+// @Summary      Show an product
+// @Description  get product by ID
+// @Tags         Show
+// @Accept       json
+// @Produce      json
+// @Param        id   path      int  true  "Product ID"
+// @Router       /product/{id} [get]
 func Show(c *gin.Context) {
 
 	var product models.Product
@@ -37,6 +50,15 @@ func Show(c *gin.Context) {
 
 }
 
+// Create godoc
+// @Summary      Insert product
+// @Description  insert product
+// @Tags         Insert
+// @Accept       json
+// @Produce      json
+// @Param        nama_product   path      string  true  "Nama Produk"
+// @Param        deskripsi   path      string  true  "deskripsi"
+// @Router       /product/{id} [post]
 func Create(c *gin.Context) {
 
 	var product models.Product

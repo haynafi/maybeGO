@@ -1,16 +1,57 @@
-externalDocs:
-  description: OpenAPI
-  url: https://swagger.io/resources/open-api/
+basePath: /api/
 host: localhost:8080
 info:
   contact:
-    name: haynafi
-    url: https://github.com/haynafi
-  description: Sample API with Gin, Golang, and Gorm
-  title: CRUD API GIN GOLANG
+    name: saya
+    url: http://github.com/haynafi
+  description: wkwkwkwkwk description
+  termsOfService: http://swagger.io/terms/
+  title: CRUD with Gin Golang
   version: "1.0"
-paths: {}
-securityDefinitions:
-  BasicAuth:
-    type: basic
+paths:
+  /product/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get product by ID
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses: {}
+      summary: Show an product
+      tags:
+      - Show
+    post:
+      consumes:
+      - application/json
+      description: insert product
+      parameters:
+      - description: Nama Produk
+        in: path
+        name: nama_product
+        required: true
+        type: string
+      - description: deskripsi
+        in: path
+        name: deskripsi
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses: {}
+      summary: Insert product
+      tags:
+      - Insert
+  /products:
+    get:
+      description: get all product
+      responses: {}
+      summary: Show all product
+      tags:
+      - Get
 swagger: "2.0"
